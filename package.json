@@ -1,0 +1,28 @@
+{
+  "name": "jce-community-chat",
+  "version": "1.0.0",
+  "description": "Modular, production-ready community chat application for JCE students",
+  "main": "src/js/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinjosh10/Community-Chat.git"
+  },
+  "keywords": [
+    "chat",
+    "community",
+    "jce"
+  ],
+  "author": "Kevin Joshua",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "vite": "^8.0.10"
+  }
+}

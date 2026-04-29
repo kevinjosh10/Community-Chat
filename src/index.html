@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JCE Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="logo-area">
+          <div class="logo-circle">J</div>
+          <div class="logo-text">
+            <h1>JCE Community</h1>
+            <p>Official student discussion forum – Jerusalem College of Engineering</p>
+          </div>
+        </div>
+        <div class="top-pill">
+          <span class="pill-dot"></span>
+          <span>Only <strong>@jerusalemengg.ac.in</strong> accounts allowed</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Auth section -->
+      <section id="auth-section" class="card-grid">
+        <!-- Signup -->
+        <div id="signup-box" class="card">
+          <h2>Create your student account</h2>
+          <p class="card-subtitle">
+            Join conversations about classes, hostel, placements, and campus life.
+          </p>
+          <form id="signup-form" class="form">
+            <label>
+              Full Name
+              <input type="text" id="signup-name" placeholder="e.g. Kevin Joshua" required />
+            </label>
+
+            <label>
+              College Email
+              <input
+                type="email"
+                id="signup-email"
+                placeholder="name@jerusalemengg.ac.in"
+                required
+              />
+            </label>
+
+            <div class="grid-2">
+              <label>
+                Year
+                <select id="signup-year" required>
+                  <option value="">Select Year</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </label>
+
+              <label>
+                Department / Course
+                <select id="signup-dept" required>
+                  <option value="">Select Department</option>
+                  <option value="CSE">CSE</option>
+                  <option value="CSE-AIML">CSE (AI & ML)</option>
+                  <option value="CSE-CYBER">CSE (Cyber Security)</option>
+                  <option value="IT">Information Technology</option>
+                  <option value="CSBS">CSBS</option>
+                  <option value="AI-DS">AI & DS</option>
+                  <option value="ECE">ECE</option>
+                  <option value="EEE">EEE</option>
+                  <option value="BME">Biomedical Engineering</option>
+                  <option value="CIVIL">Civil Engineering</option>
+                  <option value="ME-AE">M.E. Applied Electronics</option>
+                  <option value="ME-CSE">M.E. CSE</option>
+                  <option value="ME-PED">M.E. Power Electronics & Drives</option>
+                  <option value="ME-CEM">M.E. Construction Engg & Mgmt</option>
+                  <option value="MBA">MBA</option>
+                  <option value="MBA-HA">MBA Hospital Administration</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Password
+              <input
+                type="password"
+                id="signup-password"
+                placeholder="Choose a strong password"
+                required
+              />
+            </label>
+
+            <button type="submit" class="btn primary-btn">Sign Up</button>
+          </form>
+          <p id="signup-message" class="message"></p>
+        </div>
+
+        <!-- Login -->
+        <div id="login-box" class="card card-accent">
+          <h2>Log in to your account</h2>
+          <p class="card-subtitle">
+            Access channels for hostel, academics, careers, and events in one place.
+          </p>
+          <form id="login-form" class="form">
+            <label>
+              College Email
+              <input
+                type="email"
+                id="login-email"
+                placeholder="name@jerusalemengg.ac.in"
+                required
+              />
+            </label>
+
+            <label>
+              Password
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Your password"
+                required
+              />
+            </label>
+
+            <button type="submit" class="btn secondary-btn">Login</button>
+          </form>
+          <p id="login-message" class="message"></p>
+
+          <div class="info-box">
+            <h3>Guidelines</h3>
+            <ul>
+              <li>Use respectful language.</li>
+              <li>Campus-related discussions only.</li>
+              <li>No anonymous accounts – your name and department are visible.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main app section (shown after login) -->
+      <section id="app-section" class="app-layout" style="display: none;">
+        <aside class="sidebar">
+          <div id="user-info" class="user-info-card"></div>
+
+          <div class="sidebar-box">
+            <h3>Channels</h3>
+            <ul class="channel-list" id="channel-list">
+              <li class="channel active" data-channel="general"># General</li>
+              <li class="channel" data-channel="hostel"># Hostel & Campus</li>
+              <li class="channel" data-channel="academics"># Academics & Exams</li>
+              <li class="channel" data-channel="career"># Internships & Careers</li>
+              <li class="channel" data-channel="events"># Clubs & Events</li>
+              <li class="channel" data-channel="market"># Buy & Sell</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box tips-box">
+            <h3>Tips</h3>
+            <p>Use channels properly so everyone can find what they need.</p>
+            <p class="tip-line">• General – Anything campus-wide</p>
+            <p class="tip-line">• Hostel – Rooms, food, rules, issues</p>
+            <p class="tip-line">• Academics – Doubts, notes, exams</p>
+            <p class="tip-line">• Career – Internships, off-campus, skills</p>
+          </div>
+        </aside>
+
+        <section class="main-panel">
+          <!-- New post form -->
+          <div id="new-post-box" class="card">
+            <div class="card-header-row">
+              <div>
+                <h2>Start a conversation</h2>
+                <p class="card-subtitle">
+                  Pick the right channel. Everyone will see your name and department.
+                </p>
+              </div>
+              <div class="badge">
+                Live campus feed
+              </div>
+            </div>
+
+            <form id="post-form" class="form">
+              <label>
+                Channel
+                <select id="post-channel" required>
+                  <option value="general"># General</option>
+                  <option value="hostel"># Hostel & Campus</option>
+                  <option value="academics"># Academics & Exams</option>
+                  <option value="career"># Internships & Careers</option>
+                  <option value="events"># Clubs & Events</option>
+                  <option value="market"># Buy & Sell</option>
+                </select>
+              </label>
+
+              <label>
+                Your message
+                <textarea
+                  id="post-content"
+                  placeholder="Share your thoughts, ideas, updates, or questions..."
+                  required
+                ></textarea>
+              </label>
+
+              <div class="form-actions">
+                <span id="post-message" class="message"></span>
+                <button type="submit" class="btn primary-btn">Post</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Posts list -->
+          <div id="posts-list" class="card">
+            <div class="card-header-row">
+              <h2 id="posts-title">Recent posts – # General</h2>
+              <div class="posts-header-right">
+                <span class="filter-label" id="active-channel-label">General</span>
+                <button id="view-all-btn" class="btn tertiary-btn">View all</button>
+              </div>
+            </div>
+            <div id="posts-empty" class="empty-state">
+              No posts in this channel yet. Start the discussion.
+            </div>
+            <div id="posts-container"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Full posts modal -->
+      <div id="posts-modal-backdrop" class="modal-backdrop" style="display: none;">
+        <div class="modal">
+          <div class="modal-header">
+            <h2 id="modal-title">All posts – # General</h2>
+            <button id="modal-close-btn" class="close-btn">✕</button>
+          </div>
+          <div id="modal-posts-container" class="modal-posts"></div>
+        </div>
+      </div>
+
+      <!-- Post detail modal (for replies and reactions) -->
+      <div id="post-detail-modal-backdrop" class="modal-backdrop" style="display: none;">
+        <div class="modal modal-large">
+          <div class="modal-header">
+            <h2 id="detail-modal-title">Post Details</h2>
+            <button id="detail-modal-close-btn" class="close-btn">✕</button>
+          </div>
+          <div class="modal-body">
+            <div id="detail-post-container" class="detail-post"></div>
+
+            <!-- Reactions section -->
+            <div class="reactions-section">
+              <h3>Reactions</h3>
+              <div id="reactions-container" class="reactions-bar">
+                <!-- Reaction buttons populated by JS -->
+              </div>
+            </div>
+
+            <!-- Replies section -->
+            <div class="replies-section">
+              <h3>Replies</h3>
+              <form id="reply-form" class="reply-form">
+                <label>
+                  Your reply
+                  <textarea id="reply-content" placeholder="Add your response..." required></textarea>
+                </label>
+                <button type="submit" class="btn primary-btn">Send Reply</button>
+              </form>
+
+              <div id="replies-empty" class="empty-state">
+                No replies yet. Be the first to respond.
+              </div>
+              <div id="replies-container" class="replies-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
